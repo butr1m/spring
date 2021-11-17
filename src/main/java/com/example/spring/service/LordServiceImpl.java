@@ -14,6 +14,8 @@ public class LordServiceImpl implements LordService {
 
     @Autowired
     private LordDAOImpl lordDAO;
+    @Autowired
+    private PlanetServiceImpl planetService;
 
     @Transactional
     @Override

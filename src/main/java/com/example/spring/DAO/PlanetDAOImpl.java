@@ -1,5 +1,6 @@
 package com.example.spring.DAO;
 
+import com.example.spring.entity.Lord;
 import com.example.spring.entity.Planet;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -9,14 +10,12 @@ import javax.persistence.EntityManager;
 
 import java.util.List;
 
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
-
-
 @Repository
 public class PlanetDAOImpl implements PlanetDAO{
 
     @Autowired
     private EntityManager entityManager;
+
 
     @Override
     public void savePlanet(Planet planet) {

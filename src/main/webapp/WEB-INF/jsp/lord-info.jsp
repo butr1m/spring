@@ -7,6 +7,8 @@
 <h2> Lord Info</h2>
 <br>
 <form:form action="/saveLord" modelAttribute="lord">
+
+    <form:hidden path="id"/>
     Name <form:input path="lordName"/>
     <br>
     <br>

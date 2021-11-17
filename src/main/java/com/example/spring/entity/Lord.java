@@ -20,7 +20,7 @@ public class Lord implements Comparable<Lord> {
     private int lordAge;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "lord")
-    private List<Planet> planet;
+    private List<Planet> planetList;
 
 
     public Lord() {
@@ -84,11 +84,11 @@ public class Lord implements Comparable<Lord> {
         this.lordAge = lordAge;
     }
 
-    public List<Planet> getPlanet() {
-        return planet;
+    public List<Planet> getPlanetList() {
+        return planetList;
     }
 
-    public void setPlanet(List<Planet> planet) {
-        this.planet = planet;
+    public void setPlanetList(List<Planet> planetList) {
+        this.planetList = planetList;
     }
 }

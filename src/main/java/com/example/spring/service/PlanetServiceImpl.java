@@ -1,6 +1,7 @@
 package com.example.spring.service;
 
 import com.example.spring.DAO.PlanetDAO;
+import com.example.spring.entity.Lord;
 import com.example.spring.entity.Planet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,4 +32,5 @@ public class PlanetServiceImpl implements PlanetService{
     public void deletePlanet(int  id) {
         planetDAO.deletePlanet(id);
     }
+
 }

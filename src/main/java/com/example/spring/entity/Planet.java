@@ -15,6 +15,7 @@ public class Planet {
     @Column(name = "planet_name")
     private String planetName;
 
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="lord_id")
     private Lord lord;

@@ -23,17 +23,22 @@ public class LordServiceImpl implements LordService {
         lordDAO.saveLords(lord);
     }
 
+    @Override
+    public List<Lord> getLord() {
+        return lordDAO.getLords();
+    }
+
     @Transactional
     @Override
     public List<Lord> showThe10YoungestLord() {
 
-        return lordDAO.show10TheYoungestLords().stream().sorted().limit(5).collect(Collectors.toList());
+        return lordDAO.getLords().stream().sorted().limit(5).collect(Collectors.toList());
     }
 
     @Transactional
     @Override
     public List<Lord> showUnemployedLords() {
-        lordDAO.showUnemployedLords();
+        lordDAO.getLords();
 
         return null;
     }

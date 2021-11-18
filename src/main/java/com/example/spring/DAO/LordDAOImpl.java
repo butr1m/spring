@@ -12,9 +12,9 @@ import java.util.List;
 
 @Repository
 public class LordDAOImpl implements LordDAO {
+
     @Autowired
     private EntityManager entityManager;
-
 
     @Override
     public void saveLords(Lord lord) {
@@ -23,14 +23,7 @@ public class LordDAOImpl implements LordDAO {
     }
 
     @Override
-    public List<Lord> show10TheYoungestLords() {
-        Session session = entityManager.unwrap(Session.class);
-        List<Lord> lordList = session.createQuery("from Lord ", Lord.class).getResultList();
-        return lordList;
-    }
-
-    @Override
-    public List<Lord> showUnemployedLords() {
+    public List<Lord> getLords() {
         Session session = entityManager.unwrap(Session.class);
         List<Lord> lordList = session.createQuery("from Lord ", Lord.class).getResultList();
         return lordList;

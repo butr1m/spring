@@ -17,7 +17,7 @@
         <tr>
             <td>${planet.planetName}</td>
             <td>
-            <input type="button" value="Delete"
+            <input type="button" value="Destroy"
             onclick="window.location.href='${deleteButton}'"/>
             </td>
         </tr>

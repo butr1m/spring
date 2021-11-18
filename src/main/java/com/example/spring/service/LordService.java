@@ -8,6 +8,8 @@ public interface LordService {
 
 public void saveLord(Lord lord);
 
+public List<Lord> getLord();
+
 public List<Lord> showUnemployedLords();
 
 public List<Lord> showThe10YoungestLord();

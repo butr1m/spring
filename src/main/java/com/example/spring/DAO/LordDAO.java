@@ -9,9 +9,9 @@ public interface LordDAO {
 
     public void saveLords(Lord lord);
 
-    public List<Lord> showUnemployedLords();
+    public List<Lord> getLords();
 
-    public List<Lord> show10TheYoungestLords();
+
 
     public void transferThePlanetToTheLord(Planet planet,Lord lord);
 }

@@ -11,7 +11,7 @@
        onclick="window.location.href='/addNewLord'"/>
 
 <input type="button" value="Transfer the planet to the lord"
-       onclick="window.location.href=''"/>
+       onclick="window.location.href='/transferPlanet'"/>
 
 <input type="button" value="Lords without planets"
        onclick="window.location.href=''"/>

@@ -16,7 +16,7 @@ public interface PlanetService {
 
     public List<Lord> showUnemployedLords();
 
-    public void transferPlanet(Planet planet,Lord lord);
+    public void saveTransferPlanet(Planet planet,Lord lord);
 
     public List<Planet> getPlanetsWithoutLords();
 

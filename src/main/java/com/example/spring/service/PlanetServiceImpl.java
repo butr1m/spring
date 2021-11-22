@@ -49,8 +49,9 @@ public class PlanetServiceImpl implements PlanetService {
 
     @Transactional
     @Override
-    public void transferPlanet(Planet planet, Lord lord) {
-
+    public void saveTransferPlanet(Planet planet, Lord lord) {
+        planet.setLord(lord);
+        planetDAO.savePlanet(planet);
     }
 
     @Transactional

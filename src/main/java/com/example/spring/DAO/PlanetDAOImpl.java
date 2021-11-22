@@ -1,6 +1,7 @@
 package com.example.spring.DAO;
 
 
+import com.example.spring.entity.Lord;
 import com.example.spring.entity.Planet;
 import org.hibernate.Session;
 import org.hibernate.query.Query;

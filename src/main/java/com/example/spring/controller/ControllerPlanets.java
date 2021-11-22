@@ -54,13 +54,17 @@ public class ControllerPlanets {
         List<Lord> lordList = lordService.getLord();
         model.addAttribute("planetListWithoutLords", planetList);
         model.addAttribute("listAllLords", lordList);
+        Planet planet=new Planet();
+        Lord lord=new Lord();
+        model.addAttribute("planetTr",planet);
+        model.addAttribute("lordTr",lord);
+
         return "/transfer-planet";
     }
 
     @RequestMapping("/saveTransfer")
     public String saveTransfer(@ModelAttribute("planet") Planet planet, @ModelAttribute("lord") Lord lord) {
-
-
+        planetService.saveTransferPlanet(planet,lord);
         return "redirect:/showInterface";
     }
 }

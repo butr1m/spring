@@ -39,12 +39,15 @@ public class LordServiceImpl implements LordService {
 
     @Transactional
     @Override
-    public List<Lord> showUnemployedLords () {
-        List<Lord> result=new ArrayList<>();
-        List<Integer> list=planetDAO.getPlanets().stream().map(lord -> lord.getLord().getId()).collect(Collectors.toList());
-        for(Lord l:lordDAO.getLords()){
-            if(list.contains(l.getId())){
-            }else {
+    public List<Lord> showUnemployedLords() {
+        List<Lord> result = new ArrayList<>();
+        List<Lord> list = planetDAO.getPlanets().
+                stream().
+                map(lord -> lord.getLord()).
+                collect(Collectors.toList());
+        for (Lord l : lordDAO.getLords()) {
+            if (list.contains(l)){
+            } else {
                 result.add(l);
             }
         }

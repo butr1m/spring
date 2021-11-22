@@ -19,40 +19,48 @@ public class ControllerPlanets {
     @Autowired
     private PlanetService planetService;
 
+    @Autowired
+    private LordService lordService;
+
     @RequestMapping("/addNewPlanet")
-    public String addNewPlanet(Model model){
-        Planet planet=new Planet();
-        model.addAttribute("planet",planet);
+    public String addNewPlanet(Model model) {
+        Planet planet = new Planet();
+        model.addAttribute("planet", planet);
         return "planet-info";
     }
 
     @RequestMapping("/savePlanet")
-    public String savePlanet(@ModelAttribute("planet") Planet planet){
+    public String savePlanet(@ModelAttribute("planet") Planet planet) {
         planetService.savePlanet(planet);
         return "redirect:/showInterface";
     }
 
     @RequestMapping("/showPlanets")
-    public String showPlanets(Model model){
-        List<Planet> planetList=planetService.getPlanet();
-        model.addAttribute("planetList",planetList);
+    public String showPlanets(Model model) {
+        List<Planet> planetList = planetService.getPlanets();
+        model.addAttribute("planetList", planetList);
         return "get-planet";
     }
 
-
     @RequestMapping("/destroyPlanet")
-    public String destroyPlanet(@RequestParam("planetId") int id){
+    public String destroyPlanet(@RequestParam("planetId") int id) {
         planetService.deletePlanet(id);
         return "redirect:/showInterface";
     }
 
     @RequestMapping("/transferPlanet")
-    public String transferPlanet(Model model){
-        Planet planet=new Planet();
-        Lord lord=new Lord();
-        model.addAttribute("planet",planet);
-        model.addAttribute("lord",lord);
+    public String transferPlanet(Model model) {
+        List<Planet> planetList = planetService.getPlanetsWithoutLords();
+        List<Lord> lordList = lordService.getLord();
+        model.addAttribute("planetListWithoutLords", planetList);
+        model.addAttribute("listAllLords", lordList);
+        return "/transfer-planet";
+    }
 
-        return "transfer-planet";
+    @RequestMapping("/saveTransfer")
+    public String saveTransfer(@ModelAttribute("planet") Planet planet, @ModelAttribute("lord") Lord lord) {
+
+
+        return "redirect:/showInterface";
     }
 }

@@ -16,6 +16,8 @@ public class Planet {
     private String planetName;
 
 
+
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="lord_id")
     private Lord lord;
@@ -69,4 +71,6 @@ public class Planet {
     public void setLord(Lord lord) {
         this.lord = lord;
     }
+
+
 }

@@ -38,7 +38,14 @@ public class ControllerLords {
     public String show10TheYoungestLords(Model model){
         List<Lord> listTheYoungestLords=lordService.showThe10YoungestLord();
         model.addAttribute("listTheYoungestLords",listTheYoungestLords);
-        return "get-lords";
+        return "get-youngest-lords";
+    }
+
+    @RequestMapping("/showUnemployedLords")
+    public String showUnemployedLords(Model model){
+        List<Lord> listUnemployedLords=lordService.showUnemployedLords();
+        model.addAttribute("unemployedLords",listUnemployedLords);
+        return "/get-unemployeed-lords";
     }
 
 

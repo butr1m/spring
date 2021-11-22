@@ -10,13 +10,15 @@ public interface PlanetService {
 
     public void savePlanet(Planet planet);
 
-    public List<Planet> getPlanet();
+    public List<Planet> getPlanets();
 
     public void deletePlanet(int  id);
 
+    public List<Lord> showUnemployedLords();
+
     public void transferPlanet(Planet planet,Lord lord);
 
-    public List<Lord> showUnemployedLords();
+    public List<Planet> getPlanetsWithoutLords();
 
 
 }

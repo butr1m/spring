@@ -1,7 +1,6 @@
 package com.example.spring.DAO;
 
 import com.example.spring.entity.Lord;
-import com.example.spring.entity.Planet;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -29,11 +28,6 @@ public class LordDAOImpl implements LordDAO {
         return lordList;
     }
 
-    @Override
-    public void transferThePlanetToTheLord(Planet planet, Lord lord) {
-        Session session=entityManager.unwrap(Session.class);
-
-    }
 
 
 }

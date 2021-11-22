@@ -10,7 +10,7 @@ public class Lord implements Comparable<Lord> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "lord_id")
+    @Column(name = "id")
     private int id;
 
     @Column(name = "lord_name")

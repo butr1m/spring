@@ -12,6 +12,4 @@ public interface LordDAO {
     public List<Lord> getLords();
 
 
-
-    public void transferThePlanetToTheLord(Planet planet,Lord lord);
 }

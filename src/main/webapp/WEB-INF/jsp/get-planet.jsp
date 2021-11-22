@@ -17,8 +17,8 @@
         <tr>
             <td>${planet.planetName}</td>
             <td>
-            <input type="button" value="Destroy"
-            onclick="window.location.href='${deleteButton}'"/>
+                <input type="button" value="Destroy"
+                       onclick="window.location.href='${deleteButton}'"/>
             </td>
         </tr>
     </c:forEach>

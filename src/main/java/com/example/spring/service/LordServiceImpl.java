@@ -1,11 +1,13 @@
 package com.example.spring.service;
 
 import com.example.spring.DAO.LordDAOImpl;
+import com.example.spring.DAO.PlanetDAOImpl;
 import com.example.spring.entity.Lord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -15,7 +17,7 @@ public class LordServiceImpl implements LordService {
     @Autowired
     private LordDAOImpl lordDAO;
     @Autowired
-    private PlanetServiceImpl planetService;
+    private PlanetDAOImpl planetDAO;
 
     @Transactional
     @Override
@@ -37,9 +39,16 @@ public class LordServiceImpl implements LordService {
 
     @Transactional
     @Override
-    public List<Lord> showUnemployedLords() {
-        lordDAO.getLords();
+    public List<Lord> showUnemployedLords () {
+        List<Lord> result=new ArrayList<>();
+        List<Integer> list=planetDAO.getPlanets().stream().map(lord -> lord.getLord().getId()).collect(Collectors.toList());
+        for(Lord l:lordDAO.getLords()){
+            if(list.contains(l.getId())){
+            }else {
+                result.add(l);
+            }
+        }
+        return result;
 
-        return null;
     }
 }

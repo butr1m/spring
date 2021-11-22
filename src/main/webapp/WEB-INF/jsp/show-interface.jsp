@@ -14,7 +14,7 @@
        onclick="window.location.href='/transferPlanet'"/>
 
 <input type="button" value="Lords without planets"
-       onclick="window.location.href=''"/>
+       onclick="window.location.href='/showUnemployedLords'"/>
 
 <input type="button" value="10 the youngest lords"
        onclick="window.location.href='/theYoungestLords'"/>
@@ -24,10 +24,10 @@
 <h2> Methods from Planets </h2>
 
 <input type="button" value="Add new planet"
-onclick="window.location.href='/addNewPlanet'"/>
+       onclick="window.location.href='/addNewPlanet'"/>
 
 <input type="button" value="Destroy the planet"
-onclick="window.location.href='/showPlanets'">
+       onclick="window.location.href='/showPlanets'">
 
 </body>
 </html>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class PlanetServiceImpl implements PlanetService {
@@ -16,21 +17,21 @@ public class PlanetServiceImpl implements PlanetService {
     @Autowired
     private PlanetDAO planetDAO;
 
-    @Autowired
-    private LordDAO lordDAO;
-
-    private Lord lord;
 
     @Transactional
     @Override
     public void savePlanet(Planet planet) {
-        planetDAO.savePlanet(planet);
+        List<String> planetList=planetDAO.getPlanets().stream().map(pl -> pl.getPlanetName()).collect(Collectors.toList());
+        if(planetList.contains(planet.getPlanetName())){
+        }
+        else {planetDAO.savePlanet(planet);}
+
     }
 
     @Transactional
     @Override
-    public List<Planet> getPlanet() {
-        return planetDAO.getPlanet();
+    public List<Planet> getPlanets() {
+        return planetDAO.getPlanets();
     }
 
     @Transactional
@@ -41,33 +42,22 @@ public class PlanetServiceImpl implements PlanetService {
 
     @Transactional
     @Override
-    public void transferPlanet(Planet planet, Lord lord) {
+    public List<Lord> showUnemployedLords() {
 
-        if (!planetDAO.getPlanet().contains(planet.getPlanetName())){
-            System.out.println("Такая планета не существует");
-        }else if(planetDAO.getPlanet().contains(planet.getPlanetName()) && !planetDAO.getPlanet().contains(lord.getId())){
-            planet.setLord(lord);
-            System.out.println("Планета передана поселитею");
-        }else{
-            System.out.println("У панеты уже есть повелитель");
-        }
+        return null;
+    }
+
+    @Transactional
+    @Override
+    public void transferPlanet(Planet planet, Lord lord) {
 
     }
 
+    @Transactional
     @Override
-    public List<Lord> showUnemployedLords() {
+    public List<Planet> getPlanetsWithoutLords() {
 
-        List<Lord> lordList=lordDAO.getLords();
-        List<Planet> planetList=planetDAO.getPlanet();
-
-
-
-
-
-
-
-
-        return null;
+        return planetDAO.getPlanets().stream().filter(planet -> planet.getLord() == null).collect(Collectors.toList());
     }
 
 }

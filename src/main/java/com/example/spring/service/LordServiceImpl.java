@@ -43,7 +43,7 @@ public class LordServiceImpl implements LordService {
     public List<Lord> showThe10YoungestLord() {
         return lordDAO.getLords()
                 .stream()
-                .sorted().limit(5)
+                .sorted().limit(10)
                 .collect(Collectors.toList());
     }
 

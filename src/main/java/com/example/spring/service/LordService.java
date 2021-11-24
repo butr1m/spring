@@ -1,20 +1,18 @@
 package com.example.spring.service;
 
 import com.example.spring.entity.Lord;
-import com.example.spring.entity.Planet;
 
 import java.util.List;
 
 public interface LordService {
 
-public void saveLord(Lord lord);
+    public void saveLord(Lord lord);
 
-public List<Lord> getLord();
+    public List<Lord> getLord();
 
+    public List<Lord> showUnemployedLords();
 
-public List<Lord> showUnemployedLords();
-
-public List<Lord> showThe10YoungestLord();
+    public List<Lord> showThe10YoungestLord();
 
 
 }

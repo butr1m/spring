@@ -6,11 +6,8 @@
 <body>
 <h2> Planet Info </h2>
 <br>
-
 <form:form action="/savePlanet" modelAttribute="planet">
-
     <form:hidden path="id"/>
-
     Name <form:input path="planetName"/>
     <br>
     <br>

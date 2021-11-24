@@ -1,7 +1,5 @@
 package com.example.spring.DAO;
 
-
-import com.example.spring.entity.Lord;
 import com.example.spring.entity.Planet;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
@@ -17,7 +15,6 @@ public class PlanetDAOImpl implements PlanetDAO {
 
     @Autowired
     private EntityManager entityManager;
-
 
     @Override
     public void savePlanet(Planet planet) {

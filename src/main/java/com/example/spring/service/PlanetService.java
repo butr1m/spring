@@ -12,13 +12,8 @@ public interface PlanetService {
 
     public List<Planet> getPlanets();
 
-    public void deletePlanet(int  id);
+    public void deletePlanet(int id);
 
-    public List<Lord> showUnemployedLords();
-
-    public void saveTransferPlanet(Planet planet,Lord lord);
-
-    public List<Planet> getPlanetsWithoutLords();
-
+    public void saveTransferPlanet(Planet planet, Lord lord);
 
 }

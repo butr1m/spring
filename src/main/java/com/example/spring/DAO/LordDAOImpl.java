@@ -5,7 +5,6 @@ import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
 import javax.persistence.EntityManager;
 import java.util.List;
 
@@ -27,7 +26,4 @@ public class LordDAOImpl implements LordDAO {
         List<Lord> lordList = session.createQuery("from Lord ", Lord.class).getResultList();
         return lordList;
     }
-
-
-
 }

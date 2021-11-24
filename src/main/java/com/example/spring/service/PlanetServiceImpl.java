@@ -16,16 +16,19 @@ public class PlanetServiceImpl implements PlanetService {
 
     @Autowired
     private PlanetDAO planetDAO;
-
+    @Autowired
+    private LordDAO lordDAO;
 
     @Transactional
     @Override
     public void savePlanet(Planet planet) {
-        List<String> planetList=planetDAO.getPlanets().stream().map(pl -> pl.getPlanetName()).collect(Collectors.toList());
-        if(planetList.contains(planet.getPlanetName())){
+        List<String> planetList = planetDAO.getPlanets()
+                .stream().map(pl -> pl.getPlanetName())
+                .collect(Collectors.toList());
+        if (planetList.contains(planet.getPlanetName())) {
+        } else {
+            planetDAO.savePlanet(planet);
         }
-        else {planetDAO.savePlanet(planet);}
-
     }
 
     @Transactional
@@ -42,23 +45,16 @@ public class PlanetServiceImpl implements PlanetService {
 
     @Transactional
     @Override
-    public List<Lord> showUnemployedLords() {
-
-        return null;
-    }
-
-    @Transactional
-    @Override
     public void saveTransferPlanet(Planet planet, Lord lord) {
-        planet.setLord(lord);
+        for (Planet pl : planetDAO.getPlanets()) {
+            for (Lord ld : lordDAO.getLords()) {
+                if (planet.getPlanetName().equals(pl.getPlanetName()) && lord.getLordName().equals(ld.getLordName())) {
+                    planet = pl;
+                    lord = ld;
+                    planet.setLord(ld);
+                }
+            }
+        }
         planetDAO.savePlanet(planet);
     }
-
-    @Transactional
-    @Override
-    public List<Planet> getPlanetsWithoutLords() {
-
-        return planetDAO.getPlanets().stream().filter(planet -> planet.getLord() == null).collect(Collectors.toList());
-    }
-
 }

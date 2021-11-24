@@ -19,9 +19,8 @@ public class Lord implements Comparable<Lord> {
     @Column(name = "lord_age")
     private int lordAge;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "lord")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "lord")
     private List<Planet> planetList;
-
 
     public Lord() {
     }

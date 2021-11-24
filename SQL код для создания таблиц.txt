@@ -1,0 +1,12 @@
+create database nti_db;
+use nti_db;
+create table lords(
+	id int auto_increment primary key,
+    lord_name varchar(32),
+    lord_age int
+    );
+create table planets(
+	planet_id int auto_increment primary key,
+	planet_name varchar(32),
+    lord_id int references lords(id)
+	);

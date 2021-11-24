@@ -1,8 +1,7 @@
 package com.example.spring.controller;
 
-import com.example.spring.entity.Lord;
 import com.example.spring.entity.Planet;
-import com.example.spring.service.LordService;
+import com.example.spring.entity.TransferForm;
 import com.example.spring.service.PlanetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,9 +17,6 @@ public class ControllerPlanets {
 
     @Autowired
     private PlanetService planetService;
-
-    @Autowired
-    private LordService lordService;
 
     @RequestMapping("/addNewPlanet")
     public String addNewPlanet(Model model) {
@@ -50,21 +46,14 @@ public class ControllerPlanets {
 
     @RequestMapping("/transferPlanet")
     public String transferPlanet(Model model) {
-        List<Planet> planetList = planetService.getPlanetsWithoutLords();
-        List<Lord> lordList = lordService.getLord();
-        model.addAttribute("planetListWithoutLords", planetList);
-        model.addAttribute("listAllLords", lordList);
-        Planet planet=new Planet();
-        Lord lord=new Lord();
-        model.addAttribute("planetTr",planet);
-        model.addAttribute("lordTr",lord);
-
+        TransferForm transferForm = new TransferForm();
+        model.addAttribute("transferForm", transferForm);
         return "/transfer-planet";
     }
 
     @RequestMapping("/saveTransfer")
-    public String saveTransfer(@ModelAttribute("planet") Planet planet, @ModelAttribute("lord") Lord lord) {
-        planetService.saveTransferPlanet(planet,lord);
+    public String saveTransfer(@ModelAttribute("transferForm") TransferForm transferForm) {
+        planetService.saveTransferPlanet(transferForm.getPlanet(), transferForm.getLord());
         return "redirect:/showInterface";
     }
 }

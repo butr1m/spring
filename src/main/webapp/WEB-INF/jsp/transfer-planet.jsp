@@ -5,44 +5,15 @@
 <title> Transfer </title>
 <body>
 <h2> Transfer </h2>
-
-
-<%--        <td>--%>
-<%--            <table style="float: left">--%>
-<%--                <tr>--%>
-<%--                    <td>--%>
-<%--                <tr>--%>
-<%--                    <th> Planet without lord</th>--%>
-<%--                </tr>--%>
-<%--                <c:forEach var="planet" items="${planetListWithoutLords}">--%>
-<%--                    <tr>--%>
-<%--                        <td>${planet.planetName}</td>--%>
-<%--                    </tr>--%>
-<%--                </c:forEach>--%>
-<%--                </td>--%>
-<%--                </tr>--%>
-<%--            </table>--%>
-<%--        </td>--%>
-
-<%--        <td>--%>
-<%--            <table style="float: left">--%>
-<%--                <tr>--%>
-<%--                    <td>--%>
-<%--                <tr>--%>
-<%--                    <th> Lord name</th>--%>
-<%--                </tr>--%>
-<%--                <c:forEach var="lord" items="${listAllLords}">--%>
-<%--                    <tr>--%>
-<%--                        <td>${lord.lordName}</td>--%>
-<%--                    </tr>--%>
-<%--                </c:forEach>--%>
-<%--                </td>--%>
-<%--                </tr>--%>
-<%--            </table>--%>
-<%--        </td>--%>
-
-
+<form:form action="/saveTransfer" modelAttribute="transferForm" >
+    <div class="field_wrapper">
+        Planet name: <form:input path="planet.planetName"/>
+    </div>
+    <div class="field_wrapper">
+        Lord name: <form:input path="lord.lordName"/>
+    </div>
+    <input type="submit" value="OK">
+</form:form>
 </body>
 </html>
-
 

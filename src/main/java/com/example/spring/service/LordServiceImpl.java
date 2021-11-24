@@ -22,12 +22,17 @@ public class LordServiceImpl implements LordService {
     @Transactional
     @Override
     public void saveLord(Lord lord) {
-        List<String> lordList=lordDAO.getLords().stream().map(ld -> ld.getLordName()).collect(Collectors.toList());
-        if(lordList.contains(lord.getLordName())){
+        List<String> lordList = lordDAO.getLords()
+                .stream()
+                .map(ld -> ld.getLordName())
+                .collect(Collectors.toList());
+        if (lordList.contains(lord.getLordName())) {
+        } else {
+            lordDAO.saveLords(lord);
         }
-        else {lordDAO.saveLords(lord);}
     }
 
+    @Transactional
     @Override
     public List<Lord> getLord() {
         return lordDAO.getLords();
@@ -36,7 +41,10 @@ public class LordServiceImpl implements LordService {
     @Transactional
     @Override
     public List<Lord> showThe10YoungestLord() {
-        return lordDAO.getLords().stream().sorted().limit(5).collect(Collectors.toList());
+        return lordDAO.getLords()
+                .stream()
+                .sorted().limit(5)
+                .collect(Collectors.toList());
     }
 
     @Transactional
@@ -48,7 +56,7 @@ public class LordServiceImpl implements LordService {
                 map(lord -> lord.getLord()).
                 collect(Collectors.toList());
         for (Lord l : lordDAO.getLords()) {
-            if (list.contains(l)){
+            if (list.contains(l)) {
             } else {
                 result.add(l);
             }

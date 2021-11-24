@@ -9,8 +9,6 @@
 <form:form action="/savePlanet" modelAttribute="planet">
     <form:hidden path="id"/>
     Name <form:input path="planetName"/>
-    <br>
-    <br>
     <input type="submit" value="OK">
 
 </form:form>
